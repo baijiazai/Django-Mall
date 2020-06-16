@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body>
+<form action="#" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="img" required>
+    <input type="submit" value="upload">
+</form>
+{% for image in images %}
+    <img src="{{ image.img.url }}" alt="" width="25%">
+{% endfor %}
+</body>
+</html>
