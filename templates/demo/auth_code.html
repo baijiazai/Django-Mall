@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>auth code</title>
+</head>
+<body>
+<form action="#" method="post">
+    {% csrf_token %}
+    <label>验证码：
+        <input type="text" name="code" maxlength="6" minlength="6" required>
+    </label>
+    <img src="{% url 'demo:get_code' %}" alt="" id="auth_code">
+    <input type="submit" value="check">
+    {{ msg }}
+</form>
+
+<script>
+    window.onload = function () {
+        var oAuthCode = document.getElementById('auth_code');
+        oAuthCode.onclick = function(){
+            this.src = '{% url 'demo:get_code' %}' + '?t=' + Math.random() * 10;
+        }
+    }
+</script>
+</body>
+</html>
