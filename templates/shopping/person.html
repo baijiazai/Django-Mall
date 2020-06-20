@@ -1,0 +1,87 @@
+{% extends 'shopping/index.html' %}
+{% block title %}
+    个人中心
+{% endblock %}
+{% block content %}
+    <h1 class="text-center">个人中心</h1>
+    <form action="#" enctype="multipart/form-data" method="post" id="personForm">
+        {% csrf_token %}
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+        <table>
+            <tr>
+                <td>头像：</td>
+                <td id="icon"><img src="{% if user.icon %}{{ user.icon.url }}{% endif %}" alt="" width="50"></td>
+                <td><a href="javascript:;" id="updateIcon">修改头像</a></td>
+            </tr>
+            <tr>
+                <td>昵称：</td>
+                <td id="nickname">{{ user.nickname }}</td>
+                <td><a href="javascript:;" id="updateNickname">修改昵称</a></td>
+            </tr>
+            <tr>
+                <td>用户名：</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td id="pwd">······</td>
+                <td><a href="javascript:;" id="updatePwd">修改密码</a></td>
+            </tr>
+            <tr>
+                <td>邮箱：</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
+{% block script %}
+    {% if error %}
+        <script>
+            alert("{{ error }}")
+        </script>
+    {% endif %}
+    <script>
+        window.onload = function () {
+            var oPersonForm = document.getElementById('personForm');
+            var oUpdateIcon = document.getElementById('updateIcon');
+            var oIcon = document.getElementById('icon');
+            var oUpdateNickname = document.getElementById('updateNickname');
+            var oNickname = document.getElementById('nickname');
+            var oUpdatePwd = document.getElementById('updatePwd');
+            var oPwd = document.getElementById('pwd');
+
+            oUpdateIcon.onclick = function () {
+                oIcon.innerHTML = `<input type="file" accept="image/*" name="icon" required>`;
+                oPersonForm.innerHTML += `<input type="submit" value="修改">`;
+            }
+
+            oUpdateNickname.onclick = function () {
+                oNickname.innerHTML = `<input type="text" name="nickname" value="{{ user.nickname }}" required>`;
+                oPersonForm.innerHTML += `<input type="submit" value="修改">`;
+            }
+
+            oUpdatePwd.onclick = function () {
+                oPwd.innerHTML = `原始密码：<input type="password" name="oldPassword" required><br>
+        新密码 ：<input type="password" name="newPassword" id="newPassword" required><br>
+        确认密码：<input type="password" name="newPassword2" id="newPassword2" required>`;
+                oPersonForm.innerHTML += `<input type="submit" value="修改" id="sub">`;
+                checkPwd();
+            }
+
+        }
+
+        function checkPwd() {
+            let oSubmit = document.getElementById('sub');
+            let oNewPwd = document.getElementById('newPassword');
+            let oNewPwd2 = document.getElementById('newPassword2');
+
+            oSubmit.onclick = function () {
+                if (oNewPwd.value != oNewPwd2.value) {
+                    alert('两次输入的密码不一致');
+                    return false;
+                }
+                return true;
+            }
+        }
+    </script>
+{% endblock %}

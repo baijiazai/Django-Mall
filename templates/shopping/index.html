@@ -14,7 +14,7 @@
 <nav>
     <a href="{% url 'shopping:index' '全部' %}">首页</a>
     <a href="#">购物车</a>
-    <a href="#">个人中心</a>
+    <a href="{% url 'shopping:person' request.session.user_id|default:0 %}">个人中心</a>
     {% if request.session.username %}
         用户名：{{ request.session.username }}
         <a href="{% url 'shopping:logout' %}">退出登录</a>

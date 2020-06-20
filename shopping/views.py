@@ -4,10 +4,10 @@ from random import randint
 import string
 
 from PIL import Image, ImageFont, ImageDraw
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.core.paginator import Paginator
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views import View
 from django.views.generic import DetailView
@@ -47,7 +47,9 @@ class LoginView(View):
             else:
                 # 设置 session
                 username = form.cleaned_data.get('username')
+                user = User.objects.get(username=username)
                 request.session['username'] = username
+                request.session['user_id'] = user.id
                 return redirect(reverse('shopping:index', kwargs={'book_class': '全部'}))
         return render(request, 'shopping/login.html', {'form': form})
 
@@ -82,7 +84,7 @@ class RegisterView(View):
 # 退出登录
 def logout(request):
     # 将 session 恢复默认值
-    request.session['username'] = ''
+    request.session.flush()
     return redirect(reverse('shopping:index', kwargs={'book_class': '全部'}))
 
 
@@ -109,3 +111,29 @@ def get_code(request):
     request.session['check_code'] = check_code
     return HttpResponse(fp.getvalue(), content_type='image/png')
 
+
+# 个人中心
+class PersonView(View):
+    def get(self, request, pk):
+        user = get_object_or_404(User, pk=pk)
+        return render(request, 'shopping/person.html', {'user': user})
+
+    def post(self, request, pk):
+        user_id = request.POST.get('user_id')
+        user = get_object_or_404(User, pk=user_id)
+        # 修改头像
+        if request.FILES.get('icon'):
+            user.icon = request.FILES.get('icon')
+            user.save()
+        # 修改昵称
+        if request.POST.get('nickname'):
+            user.nickname = request.POST.get('nickname')
+            user.save()
+        # 修改密码
+        if request.POST.get('oldPassword'):
+            if check_password(request.POST.get('oldPassword'), user.password):
+                user.password = make_password(request.POST.get('newPassword'))
+                user.save()
+            else:
+                return render(request, 'shopping/person.html', {'error': '原始密码错误！', 'user': user})
+        return redirect(reverse('shopping:person', kwargs={'pk': user_id}))
