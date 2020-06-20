@@ -20,4 +20,12 @@ class Book(models.Model):
         ordering = ['-scale', '-store', '-comments']
 
 
+class User(models.Model):
+    username = models.CharField(verbose_name='用户名', max_length=200, unique=True)
+    password = models.CharField(verbose_name='密码', max_length=256)
+    email = models.EmailField(verbose_name='邮箱', max_length=200, unique=True)
+    nickname = models.CharField(verbose_name='昵称', max_length=8)
+    icon = models.ImageField(verbose_name='头像', upload_to='icon/%Y/%m/%d')
 
+    class Meta:
+        verbose_name_plural = '用户'

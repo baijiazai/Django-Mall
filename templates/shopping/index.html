@@ -12,10 +12,15 @@
 <body>
 <hr>
 <nav>
-    <a href="{% url 'shopping:index' 1 %}">首页</a>
+    <a href="{% url 'shopping:index' '全部' %}">首页</a>
     <a href="#">购物车</a>
     <a href="#">个人中心</a>
-    <a href="#">登录</a>
+    {% if request.session.username %}
+        用户名：{{ request.session.username }}
+        <a href="{% url 'shopping:logout' %}">退出登录</a>
+    {% else %}
+        <a href="{% url 'shopping:login' %}">登录</a>
+    {% endif %}
     <form method="post" class="float-right">
         <input type="text" placeholder="搜索">
         <input type="submit" value="搜索">
@@ -55,11 +60,11 @@
                 <a href="?page=1">&laquo; 首页</a>
                 <a href="?page={{ book_list.previous_page_number }}">上一页</a>
             {% endif %}
-    
+
             <span class="current">
                 当前：{{ book_list.number }} 页；共：{{ book_list.paginator.num_pages }} 页
             </span>
-    
+
             {% if book_list.has_next %}
                 <a href="?page={{ book_list.next_page_number }}">下一页</a>
                 <a href="?page={{ book_list.paginator.num_pages }}">尾页 &raquo;</a>

@@ -1,0 +1,31 @@
+{% extends 'shopping/index.html' %}
+{% block title %}
+    注册
+{% endblock %}
+{% block content %}
+    <form action="#" method="post" class="text-center">
+        {% csrf_token %}
+        <table style="margin: 50px auto;">
+            <h1>注册</h1>
+            <h3>{{ errors.password2 }}</h3>
+            {{ form }}
+            <tr>
+                <td></td>
+                <td><img id="checkCode" src="{% url 'shopping:get_code' %}" style="width: 50%;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="注册"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
+{% block script %}
+    <script>
+        var oCheckCode = document.getElementById('checkCode');
+        var checkCodeUrl = oCheckCode.src;
+        oCheckCode.onclick = function () {
+            this.src = checkCodeUrl + '?t=' + Math.random();
+        }
+    </script>
+{% endblock %}
