@@ -1,6 +1,5 @@
 from django.db import models
 
-
 BOOK_CLASS_LIST = [('教育', '教育'), ('小说', '小说'), ('文艺', '文艺'), ('童书', '童书'), ('人文', '人文'), ('经营', '经营'),
                    ('励志', '励志'), ('生活', '生活'), ('科技', '科技')]
 
@@ -29,3 +28,13 @@ class User(models.Model):
 
     class Meta:
         verbose_name_plural = '用户'
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='用户')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name='书籍')
+    count = models.IntegerField(verbose_name='数量', default=1)
+    is_select = models.BooleanField(verbose_name='选中', default=True)
+
+    class Meta:
+        verbose_name_plural = '购物车'

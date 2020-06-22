@@ -41,47 +41,33 @@
         </script>
     {% endif %}
     <script>
-        window.onload = function () {
-            var oPersonForm = document.getElementById('personForm');
-            var oUpdateIcon = document.getElementById('updateIcon');
-            var oIcon = document.getElementById('icon');
-            var oUpdateNickname = document.getElementById('updateNickname');
-            var oNickname = document.getElementById('nickname');
-            var oUpdatePwd = document.getElementById('updatePwd');
-            var oPwd = document.getElementById('pwd');
+        $(function () {
+            var $oPersonForm = $('#personForm');
+            $('#updateIcon').click(function () {
+                $('#icon').html(`<input type="file" accept="image/*" name="icon" required>`);
+                $oPersonForm.html($oPersonForm.html() + `<input type="submit" value="修改">`);
+            });
 
-            oUpdateIcon.onclick = function () {
-                oIcon.innerHTML = `<input type="file" accept="image/*" name="icon" required>`;
-                oPersonForm.innerHTML += `<input type="submit" value="修改">`;
-            }
+            $('#updateNickname').click(function () {
+                $('#nickname').html(`<input type="text" name="nickname" value="{{ user.nickname }}" required>`);
+                $oPersonForm.html($oPersonForm.html() + `<input type="submit" value="修改">`);
+            });
 
-            oUpdateNickname.onclick = function () {
-                oNickname.innerHTML = `<input type="text" name="nickname" value="{{ user.nickname }}" required>`;
-                oPersonForm.innerHTML += `<input type="submit" value="修改">`;
-            }
-
-            oUpdatePwd.onclick = function () {
-                oPwd.innerHTML = `原始密码：<input type="password" name="oldPassword" required><br>
+            $('#updatePwd').click(function () {
+                let html = `原始密码：<input type="password" name="oldPassword" required><br>
         新密码 ：<input type="password" name="newPassword" id="newPassword" required><br>
         确认密码：<input type="password" name="newPassword2" id="newPassword2" required>`;
-                oPersonForm.innerHTML += `<input type="submit" value="修改" id="sub">`;
-                checkPwd();
-            }
+                $('#pwd').html(html);
+                $oPersonForm.html($oPersonForm.html() + `<input type="submit" value="修改" id="sub">`);
 
-        }
-
-        function checkPwd() {
-            let oSubmit = document.getElementById('sub');
-            let oNewPwd = document.getElementById('newPassword');
-            let oNewPwd2 = document.getElementById('newPassword2');
-
-            oSubmit.onclick = function () {
-                if (oNewPwd.value != oNewPwd2.value) {
-                    alert('两次输入的密码不一致');
-                    return false;
-                }
-                return true;
-            }
-        }
+                $('#sub').click(function () {
+                    if ($('#newPassword').val() != $('#newPassword2').val()) {
+                        alert('两次输入的密码不一致');
+                        return false;
+                    }
+                    return true;
+                });
+            });
+        })
     </script>
 {% endblock %}

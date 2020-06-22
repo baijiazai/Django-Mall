@@ -13,8 +13,8 @@
 <hr>
 <nav>
     <a href="{% url 'shopping:index' '全部' %}">首页</a>
-    <a href="#">购物车</a>
-    <a href="{% url 'shopping:person' request.session.user_id|default:0 %}">个人中心</a>
+    <a href="{% url 'shopping:cart' %}">购物车</a>
+    <a href="{% url 'shopping:person' %}">个人中心</a>
     {% if request.session.username %}
         用户名：{{ request.session.username }}
         <a href="{% url 'shopping:logout' %}">退出登录</a>
@@ -48,7 +48,7 @@
                     <div>{{ book.comments }}人评论</div>
                 </td>
                 <td>
-                    <div><a href="#">加入购物车</a></div>
+                    <div><a href="javascript:;" class="add_cart" name="{{ book.id }}">加入购物车</a></div>
                     <div><a href="#">收藏</a></div>
                 </td>
             </tr>
@@ -73,8 +73,21 @@
     </div>
 {% endblock %}
 
-{% block script %}
 
+<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+{% block script %}
+    <script>
+        $(function () {
+            $('.add_cart').click(function () {
+                let $that = $(this);
+                $.get('/shopping/cart/add/' + $that.attr('name'), function (data) {
+                    if (data.status === 200){
+                        alert('已加入购物车');
+                    }
+                });
+            });
+        })
+    </script>
 {% endblock %}
 </body>
 </html>

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from shopping import views
 
@@ -9,5 +9,11 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('register', views.RegisterView.as_view(), name='register'),
     path('get_code', views.get_code, name='get_code'),
-    path('person/<int:pk>', views.PersonView.as_view(), name='person'),
+    path('person', views.PersonView.as_view(), name='person'),
+    path('cart/', include([
+        path('', views.CartView.as_view(), name='cart'),
+        path('add/<int:book_id>', views.add_cart, name='add_cart'),
+        path('sub/<int:book_id>', views.sub_cart, name='sub_cart'),
+        path('clear', views.clear_cart, name='clear_cart'),
+    ]))
 ]

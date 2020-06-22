@@ -22,10 +22,10 @@
 {% endblock %}
 {% block script %}
     <script>
-        var oCheckCode = document.getElementById('checkCode');
-        var checkCodeUrl = oCheckCode.src;
-        oCheckCode.onclick = function () {
-            this.src = checkCodeUrl + '?t=' + Math.random();
-        }
+        $(function () {
+            $('#checkCode').click(function () {
+                $(this).attr('src', $(this).attr('src') + '?t=' + Math.random());
+            });
+        })
     </script>
 {% endblock %}

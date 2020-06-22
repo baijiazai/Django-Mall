@@ -6,7 +6,7 @@ import string
 from PIL import Image, ImageFont, ImageDraw
 from django.contrib.auth.hashers import make_password, check_password
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views import View
@@ -15,7 +15,7 @@ from six import BytesIO
 
 from Mall.settings import STATIC_ROOT
 from shopping.forms import LoginForm, RegisterForm
-from shopping.models import BOOK_CLASS_LIST, Book, User
+from shopping.models import BOOK_CLASS_LIST, Book, User, Cart
 
 
 def index(request, book_class):
@@ -114,11 +114,12 @@ def get_code(request):
 
 # 个人中心
 class PersonView(View):
-    def get(self, request, pk):
-        user = get_object_or_404(User, pk=pk)
+    def get(self, request):
+        user_id = request.session.get('user_id', '')
+        user = get_object_or_404(User, pk=user_id)
         return render(request, 'shopping/person.html', {'user': user})
 
-    def post(self, request, pk):
+    def post(self, request):
         user_id = request.POST.get('user_id')
         user = get_object_or_404(User, pk=user_id)
         # 修改头像
@@ -137,3 +138,63 @@ class PersonView(View):
             else:
                 return render(request, 'shopping/person.html', {'error': '原始密码错误！', 'user': user})
         return redirect(reverse('shopping:person', kwargs={'pk': user_id}))
+
+
+# 购物车列表
+class CartView(View):
+    def get(self, request):
+        user_id = request.session.get('user_id', '')
+        cart_list = Cart.objects.filter(user_id=user_id)
+        return render(request, 'shopping/cart.html', {'cart_list': cart_list})
+
+    def post(self, request):
+        pass
+
+
+# 加入购物车或数量加一
+def add_cart(request, book_id):
+    user_id = request.session.get('user_id', '')
+    data = {
+        'status': 200,
+        'msg': 'add success',
+    }
+    try:
+        cart = Cart.objects.get(user_id=user_id, book_id=book_id)
+        cart.count = cart.count + 1
+        cart.save()
+        data['count'] = cart.count
+    except:
+        Cart.objects.create(user_id=user_id, book_id=book_id)
+        data['count'] = 1
+    return JsonResponse(data=data)
+
+
+# 移出购物车或数量减一
+def sub_cart(request, book_id):
+    user_id = request.session.get('user_id', '')
+    try:
+        cart = Cart.objects.get(user_id=user_id, book_id=book_id)
+        data = {
+            'status': 200,
+            'msg': 'sub success',
+        }
+        if cart.count == 1:
+            cart.delete()
+            data['count'] = 0
+        else:
+            cart.count = cart.count - 1
+            cart.save()
+            data['count'] = cart.count
+    except:
+        data = {
+            'status': 404,
+            'msg': 'is not exits'
+        }
+    return JsonResponse(data=data)
+
+
+# 清空购物车
+def clear_cart(request):
+    user_id = request.session.get('user_id')
+    Cart.objects.filter(user_id=user_id).delete()
+    return redirect(reverse('shopping:cart'))

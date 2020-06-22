@@ -1,0 +1,117 @@
+{% extends 'shopping/index.html' %}
+{% block title %}
+    购物车
+{% endblock %}
+{% block content %}
+    <h1>购物车</h1>
+    <div id="app">
+        {% if request.session.username %}
+            {% if cart_list %}
+                <table border="1">
+                    <tr>
+                        <th>全选<input type="checkbox" id="allSelected" checked=></th>
+                        <th id="total" style="color: red;">共：￥0</th>
+                        <th><a href="#">立即结算</a></th>
+                        <th><a href="javascript:;" id="clearCart">清空购物车</a></th>
+                    </tr>
+                    {% for cart in cart_list %}
+                        <tr>
+                            <td><input type="checkbox" {% if cart.is_select %}checked{% endif %}></td>
+                            <td><img src="{{ cart.book.img.url }}" alt="" width="150"></td>
+                            <td>
+                                <div class="bold">书名：{{ cart.book.name }}</div>
+                                <div style="color: red;">单价：￥{{ cart.book.price }}</div>
+                                <div class="count count_{{ cart.book.id }}">数量：{{ cart.count }}</div>
+                                <div style="color: red;">支付：￥{% widthratio cart.book.price 1.0 cart.count %}</div>
+                            </td>
+                            <td>
+                                <button class="sub" name="{{ cart.book.id }}">-</button>
+                                <button class="add" name="{{ cart.book.id }}">+</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <h2>购物车空空如也</h2>
+            {% endif %}
+        {% else %}
+            <h2>还没登录，请先登录</h2>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        $(function () {
+            $('#clearCart').click(function () {
+                let res = confirm('确定要清空购物车吗？(谨慎操作)');
+                if (res) {
+                    window.location = "{% url 'shopping:clear_cart' %}";
+                } else {
+                    return false;
+                }
+            });
+
+            let total = 0;
+            $('.count').each(function () {
+                let price = parseFloat($(this).prev().text().substr(4));
+                let num = parseInt($(this).text().substr(3));
+                $(this).next().text('支付：￥' + (price * num).toFixed(2));
+                total += (price * num);
+            });
+            $('#total').text('共：￥' + total.toFixed(2));
+
+            $('.add').click(function () {
+                let $that = $(this);
+                $.get('/shopping/cart/add/' + $(this).attr('name'), function (data) {
+                    if (data.status === 200) {
+                        let oSetCount = $('.count_' + $that.attr('name'));
+                        let price = parseFloat(oSetCount.prev().text().substr(4));
+                        oSetCount.text('数量：' + data.count);
+                        oSetCount.next().text('支付：￥' + (price * data.count).toFixed(2));
+                        total += price;
+                        $('#total').text('共：￥' + total.toFixed(2));
+                    }
+                });
+            });
+
+            $('.sub').click(function () {
+                let $that = $(this);
+                let num = parseInt($(this).text().substr(3));
+                if (num == 1) {
+                    let res = confirm('确定要移出购物车吗');
+                    if (!res) {
+                        return false;
+                    }
+                }
+                $.get('/shopping/cart/sub/' + $(this).attr('name'), function (data) {
+                    if (data.status === 200) {
+                        let oSetCount = $('.count_' + $that.attr('name'));
+                        let price = parseFloat(oSetCount.prev().text().substr(4));
+                        if (data.count === 0) {
+                            $that.parents('tr').remove();
+                        } else {
+                            oSetCount.text('数量：' + data.count);
+                            oSetCount.next().text('支付：￥' + (price * data.count).toFixed(2));
+                        }
+                        total -= price;
+                        $('#total').text('共：￥' + total.toFixed(2));
+                    }
+                });
+            });
+
+            $('#allSelected').on('click', function () {
+                $('input:checkbox').prop('checked', $(this).prop('checked'));
+            })
+
+            $('input:checkbox').on('click', function () {
+                let flag = true;
+                $('input:checkbox:gt(0)').each(function () {
+                    if (!$(this).prop('checked')){
+                        flag = false;
+                    }
+                });
+                $('#allSelected').prop('checked', flag);
+            })
+        })
+    </script>
+{% endblock %}
