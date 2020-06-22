@@ -20,7 +20,7 @@ from shopping.models import BOOK_CLASS_LIST, Book, User, Cart
 
 def index(request, book_class):
     book_list = Book.objects.all() if book_class == '全部' else Book.objects.filter(book_class=book_class)
-    paginator = Paginator(book_list, 3)
+    paginator = Paginator(book_list, 5)
     page = request.GET.get('page')
     contacts = paginator.get_page(page)
 
@@ -29,6 +29,21 @@ def index(request, book_class):
         'book_list': contacts
     }
     return render(request, 'shopping/index.html', context)
+
+
+# 搜索
+def search(request):
+    keyword = request.GET.get('keyword')
+    book_list = Book.objects.filter(name__icontains=keyword).order_by('-scale')
+    paginator = Paginator(book_list, 5)
+    page = request.GET.get('page')
+    contacts = paginator.get_page(page)
+
+    context = {
+        'book_list': contacts,
+        'keyword': keyword
+    }
+    return render(request, 'shopping/search.html', context)
 
 
 # 登录页

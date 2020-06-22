@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}畅意书海{% endblock %}</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/common.css' %}">
-    {% block style %}
-
-    {% endblock %}
-</head>
-<body>
-<hr>
-<nav>
-    <a href="{% url 'shopping:index' '全部' %}">首页</a>
-    <a href="{% url 'shopping:cart' %}">购物车</a>
-    <a href="{% url 'shopping:person' %}">个人中心</a>
-    {% if request.session.username %}
-        用户名：{{ request.session.username }}
-        <a href="{% url 'shopping:logout' %}">退出登录</a>
-    {% else %}
-        <a href="{% url 'shopping:login' %}">登录</a>
-    {% endif %}
-    <form method="get" class="float-right" action="{% url 'shopping:search' %}">
-        {% csrf_token %}
-        <input type="text" placeholder="搜索" name="keyword">
-        <input type="submit" value="搜索">
-    </form>
-</nav>
-<hr>
+{% extends 'shopping/index.html' %}
+{% block title %}
+    搜索_{{ keyword }}
+{% endblock %}
 {% block content %}
-    <h1 class="text-center">首页</h1>
-    <hr>
-    分类：
-    <a href="{% url 'shopping:index' '全部' %}">全部</a>
-    {% for book_class in book_class_list %}
-        <a href="{% url 'shopping:index' book_class %}">{{ book_class }}</a>
-    {% endfor %}
-    <hr>
+    <h1 class="text-center">搜索</h1>
     <table border="1">
         {% for book in book_list %}
             <tr>
@@ -74,7 +41,6 @@
     </div>
 {% endblock %}
 
-<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 {% block script %}
     <script>
         $(function () {
@@ -89,5 +55,3 @@
         })
     </script>
 {% endblock %}
-</body>
-</html>

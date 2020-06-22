@@ -9,14 +9,15 @@
             {% if cart_list %}
                 <table border="1">
                     <tr>
-                        <th>全选<input type="checkbox" id="allSelected" checked=></th>
+                        <th>全选<input type="checkbox" id="allSelected" checked></th>
                         <th id="total" style="color: red;">共：￥0</th>
                         <th><a href="#">立即结算</a></th>
                         <th><a href="javascript:;" id="clearCart">清空购物车</a></th>
                     </tr>
                     {% for cart in cart_list %}
                         <tr>
-                            <td><input type="checkbox" {% if cart.is_select %}checked{% endif %}></td>
+                            <td><input type="checkbox" name="sel" value="{{ cart.book.id }}"
+                                       {% if cart.is_select %}checked{% endif %}></td>
                             <td><img src="{{ cart.book.img.url }}" alt="" width="150"></td>
                             <td>
                                 <div class="bold">书名：{{ cart.book.name }}</div>
@@ -100,13 +101,34 @@
             });
 
             $('#allSelected').on('click', function () {
-                $('input:checkbox').prop('checked', $(this).prop('checked'));
+                let flag = $(this).prop('checked');
+                $('input:checkbox').prop('checked', flag);
+                total = 0;
+                if (flag) {
+                    $('.count').each(function () {
+                        let price = parseFloat($(this).prev().text().substr(4));
+                        let num = parseInt($(this).text().substr(3));
+                        $(this).next().text('支付：￥' + (price * num).toFixed(2));
+                        total += (price * num);
+                    });
+                }
+                $('#total').text('共：￥' + total.toFixed(2));
             })
 
-            $('input:checkbox').on('click', function () {
+            $('input:checkbox:gt(0)').on('click', function () {
+                let oCount = $(this).parents('tr').find('.count');
+                let price = parseFloat(oCount.prev().text().substr(4));
+                let num = parseInt(oCount.text().substr(3));
+                if ($(this).prop('checked') == true) {
+                    total += price * num;
+                } else {
+                    total -= price * num;
+                }
+                $('#total').text('共：￥' + total.toFixed(2));
+
                 let flag = true;
                 $('input:checkbox:gt(0)').each(function () {
-                    if (!$(this).prop('checked')){
+                    if (!$(this).prop('checked')) {
                         flag = false;
                     }
                 });
