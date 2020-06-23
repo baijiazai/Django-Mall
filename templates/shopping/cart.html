@@ -2,36 +2,60 @@
 {% block title %}
     购物车
 {% endblock %}
+{% block style %}
+    <style>
+        .add, .sub {
+            font-size: 50px;
+            cursor: pointer;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .add {
+            color: darkgreen;
+        }
+
+        .sub {
+            color: darkred;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
     <h1>购物车</h1>
     <div id="app">
         {% if request.session.username %}
             {% if cart_list %}
-                <table border="1">
-                    <tr>
-                        <th>全选<input type="checkbox" id="allSelected" checked></th>
-                        <th id="total" style="color: red;">共：￥0</th>
-                        <th><a href="#">立即结算</a></th>
-                        <th><a href="javascript:;" id="clearCart">清空购物车</a></th>
-                    </tr>
-                    {% for cart in cart_list %}
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <table border="1">
                         <tr>
-                            <td><input type="checkbox" name="sel" value="{{ cart.book.id }}"
-                                       {% if cart.is_select %}checked{% endif %}></td>
-                            <td><img src="{{ cart.book.img.url }}" alt="" width="150"></td>
-                            <td>
-                                <div class="bold">书名：{{ cart.book.name }}</div>
-                                <div style="color: red;">单价：￥{{ cart.book.price }}</div>
-                                <div class="count count_{{ cart.book.id }}">数量：{{ cart.count }}</div>
-                                <div style="color: red;">支付：￥{% widthratio cart.book.price 1.0 cart.count %}</div>
-                            </td>
-                            <td>
-                                <button class="sub" name="{{ cart.book.id }}">-</button>
-                                <button class="add" name="{{ cart.book.id }}">+</button>
-                            </td>
+                            <th>全选<input type="checkbox" id="allSelected" checked></th>
+                            <th id="total" style="color: red;">共：￥0</th>
+                            <th>
+                                <button id="makeOrder">立即结算</button>
+                            </th>
+                            <th><a href="javascript:;" id="clearCart">清空购物车</a></th>
                         </tr>
-                    {% endfor %}
-                </table>
+                        {% for cart in cart_list %}
+                            <tr>
+                                <td><input type="checkbox" name="sel" value="{{ cart.book.id }}"
+                                           {% if cart.is_select %}checked{% endif %}></td>
+                                <td><img src="{{ cart.book.img.url }}" alt="" width="150"></td>
+                                <td>
+                                    <div class="bold">书名：{{ cart.book.name }}</div>
+                                    <div style="color: red;">单价：￥{{ cart.book.price }}</div>
+                                    <div class="count count_{{ cart.book.id }}">数量：{{ cart.count }}</div>
+                                    <div style="color: red;">支付：￥{% widthratio cart.book.price 1.0 cart.count %}</div>
+                                </td>
+                                <td>
+                                    <div class="add" name="{{ cart.book.id }}">+</div>
+                                    <div class="sub" name="{{ cart.book.id }}">-</div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </form>
             {% else %}
                 <h2>购物车空空如也</h2>
             {% endif %}
@@ -133,7 +157,8 @@
                     }
                 });
                 $('#allSelected').prop('checked', flag);
-            })
+            });
+
         })
     </script>
 {% endblock %}

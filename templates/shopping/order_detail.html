@@ -1,0 +1,64 @@
+{% extends 'shopping/index.html' %}
+{% block title %}
+    订单详情
+{% endblock %}
+{% block content %}
+    <h1>订单详情</h1>
+    {% if order.status == '待付款' %}
+        <form action="{% url 'shopping:order_pay' %}" method="post">
+    {% elif order.status == '待发货' %}
+        <form>
+    {% elif order.status == '待收货' %}
+        <form action="{% url 'shopping:order_take' %}" method="post">
+    {% elif order.status == '待评价' %}
+        <form action="">
+    {% endif %}
+<table border="1">
+    {% csrf_token %}
+    <input type="hidden" name="order_id" value="{{ order.id }}">
+    订单编号：{{ order.id }}<br>
+    时间：{{ order.time }}
+    <tr>
+        <td style="color: red;">共：￥{{ order.total }}</td>
+        <td>
+            {% if order.status == '待付款' %}
+                <input type="submit" value="立即支付" id="pay">
+            {% elif order.status == '待收货' %}
+                <input type="submit" value="确认收货" id="pay">
+            {% endif %}
+        </td>
+    </tr>
+    {% for book in order.orderbook_set.all %}
+        <tr>
+            <td><img src="{{ book.book.img.url }}" alt="" width="150"></td>
+            <td>
+                <div class="bold">书名：{{ book.book.name }}</div>
+                <div style="color: red;">单价：￥{{ book.book.price }}</div>
+                <div class="count count_{{ book.book.id }}">数量：{{ book.count }}</div>
+                <div style="color: red;">支付：￥</div>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}
+{% block script %}
+    {% if msg %}
+        <script>
+            alert({{ msg }});
+        </script>
+    {% endif %}
+    <script>
+        $(function () {
+            $('.count').each(function () {
+                let price = parseFloat($(this).prev().text().substr(4));
+                let num = parseInt($(this).text().substr(3));
+                $(this).next().text('支付：￥' + (price * num).toFixed(2));
+            });
+
+            $('#pay').click(function () {
+                return confirm('确定支付吗？');
+            });
+        })
+    </script>
+{% endblock %}

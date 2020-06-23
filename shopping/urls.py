@@ -20,5 +20,12 @@ urlpatterns = [
         path('add/<int:book_id>', views.add_cart, name='add_cart'),
         path('sub/<int:book_id>', views.sub_cart, name='sub_cart'),
         path('clear', views.clear_cart, name='clear_cart'),
+    ])),
+
+    path('order/', include([
+        path('detail/<int:order_id>', views.order_detail, name='order_detail'),
+        path('pay', views.order_pay, name='order_pay'),
+        path('take', views.order_take, name='order_take'),
+        path('eval', views.order_eval, name='order_eval'),
     ]))
 ]

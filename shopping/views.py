@@ -9,13 +9,13 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
+from django.utils import timezone
 from django.views import View
-from django.views.generic import DetailView
 from six import BytesIO
 
 from Mall.settings import STATIC_ROOT
 from shopping.forms import LoginForm, RegisterForm
-from shopping.models import BOOK_CLASS_LIST, Book, User, Cart
+from shopping.models import BOOK_CLASS_LIST, Book, User, Cart, Order, OrderBook
 
 
 def index(request, book_class):
@@ -132,7 +132,20 @@ class PersonView(View):
     def get(self, request):
         user_id = request.session.get('user_id', '')
         user = get_object_or_404(User, pk=user_id)
-        return render(request, 'shopping/person.html', {'user': user})
+        order_list = Order.objects.filter(user_id=user_id)
+        pay_order_list = Order.objects.filter(user_id=user_id, status='待付款')
+        send_order_list = Order.objects.filter(user_id=user_id, status='待发货')
+        take_order_list = Order.objects.filter(user_id=user_id, status='待收货')
+        eval_order_list = Order.objects.filter(user_id=user_id, status='待评价')
+        context = {
+            'user': user,
+            'order_list': order_list,
+            'pay_order_list': pay_order_list,
+            'send_order_list': send_order_list,
+            'take_order_list': take_order_list,
+            'eval_order_list': eval_order_list,
+        }
+        return render(request, 'shopping/person.html', context)
 
     def post(self, request):
         user_id = request.POST.get('user_id')
@@ -163,7 +176,16 @@ class CartView(View):
         return render(request, 'shopping/cart.html', {'cart_list': cart_list})
 
     def post(self, request):
-        pass
+        user_id = request.session.get('user_id', '')
+        cbx = request.POST.getlist('sel')
+        cart_list = Cart.objects.filter(user_id=user_id, book_id__in=cbx)
+
+        total = round(sum([c.count * c.book.price for c in cart_list]), 2)
+        order = Order.objects.create(user_id=user_id, total=total, time=timezone.now(), status='待付款')
+        for c in cart_list:
+            OrderBook.objects.create(order_id=order.id, book_id=c.book.id, count=c.count)
+            c.delete()
+        return redirect(reverse('shopping:order_detail', kwargs={'order_id': order.id}))
 
 
 # 加入购物车或数量加一
@@ -213,3 +235,43 @@ def clear_cart(request):
     user_id = request.session.get('user_id')
     Cart.objects.filter(user_id=user_id).delete()
     return redirect(reverse('shopping:cart'))
+
+
+# 订单详情
+def order_detail(request, order_id):
+    user_id = request.session.get('user_id')
+    order = get_object_or_404(Order, pk=order_id, user_id=user_id)
+    return render(request, 'shopping/order_detail.html', {'order': order})
+
+
+# 待付款，付款
+def order_pay(request):
+    if request.method == 'POST':
+        user_id = request.session.get('user_id')
+        order_id = request.POST.get('order_id')
+        try:
+            order = Order.objects.get(user_id=user_id, pk=order_id, status='待付款')
+            order.status = '待发货'
+            order.save()
+        except:
+            return render(request, 'shopping/order_detail.html', {'msg': '订单不存在'})
+        return redirect(reverse('shopping:person'))
+
+
+# 待收货，收货
+def order_take(request):
+    if request.method == 'POST':
+        user_id = request.session.get('user_id')
+        order_id = request.POST.get('order_id')
+        try:
+            order = Order.objects.get(user_id=user_id, pk=order_id, status='待收货')
+            order.status = '待评价'
+            order.save()
+        except:
+            return render(request, 'shopping/order_detail.html', {'msg': '订单不存在'})
+        return redirect(reverse('shopping:person'))
+
+
+# 待评价，评价
+def order_eval(request):
+    return None
