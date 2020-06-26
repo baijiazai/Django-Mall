@@ -1,0 +1,789 @@
+*** Starting uWSGI 2.0.19.1 (64bit) on [Tue Jun 23 17:09:42 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-26-generic #30-Ubuntu SMP Mon Apr 20 16:58:30 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 127.0.0.1:8080 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:43063 (port auto-assigned) fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55a726e262c0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x55a726e262c0 pid: 71339 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 71339)
+spawned uWSGI worker 1 (pid: 71342, cores: 2)
+spawned uWSGI worker 2 (pid: 71343, cores: 2)
+spawned uWSGI worker 3 (pid: 71346, cores: 2)
+spawned uWSGI worker 4 (pid: 71348, cores: 2)
+spawned uWSGI http 1 (pid: 71349)
+Not Found: /
+[pid: 71346|app: 0|req: 1/1] 127.0.0.1 () {46 vars in 891 bytes} [Wed Jun 24 01:13:14 2020] GET / => generated 2259 bytes in 267 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 71348|app: 0|req: 1/2] 127.0.0.1 () {44 vars in 809 bytes} [Wed Jun 24 01:13:15 2020] GET /favicon.ico => generated 2310 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71346|app: 0|req: 2/3] 127.0.0.1 () {46 vars in 945 bytes} [Wed Jun 24 01:13:24 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 2129 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71343|app: 0|req: 2/4] 127.0.0.1 () {44 vars in 841 bytes} [Wed Jun 24 01:13:26 2020] GET /static/css/common.css => generated 2340 bytes in 28 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71342|app: 0|req: 2/5] 127.0.0.1 () {44 vars in 902 bytes} [Wed Jun 24 01:13:26 2020] GET /media/book/2020/06/20/24156030-1_l_12.jpg => generated 11336 bytes in 36 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 1)
+[pid: 71342|app: 0|req: 2/6] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:26 2020] GET /media/book/2020/06/20/26921715-1_l_2.jpg => generated 9316 bytes in 41 msecs via sendfile() (HTTP/1.1 200) 4 headers in 142 bytes (0 switches on core 0)
+[pid: 71348|app: 0|req: 3/8] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:26 2020] GET /media/book/2020/06/20/25090502-1_l_5.jpg => generated 7193 bytes in 82 msecs via sendfile() (HTTP/1.1 200) 4 headers in 142 bytes (0 switches on core 0)
+[pid: 71348|app: 0|req: 3/8] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:26 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 8409 bytes in 83 msecs via sendfile() (HTTP/1.1 200) 4 headers in 142 bytes (0 switches on core 1)
+[pid: 71343|app: 0|req: 2/9] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:26 2020] GET /media/book/2020/06/20/23579654-1_l_6.jpg => generated 63906 bytes in 93 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 1)
+[pid: 71343|app: 0|req: 3/10] 127.0.0.1 () {48 vars in 1023 bytes} [Wed Jun 24 01:13:38 2020] GET /shopping/index/%E6%95%99%E8%82%B2 => generated 5676 bytes in 231 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 71342|app: 0|req: 3/11] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:38 2020] GET /media/book/2020/06/20/23697183-1_b_1.jpg => generated 16838 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 4/12] 127.0.0.1 () {44 vars in 841 bytes} [Wed Jun 24 01:13:38 2020] GET /static/css/common.css => generated 2340 bytes in 12 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71348|app: 0|req: 5/13] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:38 2020] GET /media/book/2020/06/20/25205774-1_l_3.jpg => generated 35040 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 1)
+[pid: 71343|app: 0|req: 5/14] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:38 2020] GET /media/book/2020/06/20/25205764-1_b_3.jpg => generated 50478 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 0)
+[pid: 71343|app: 0|req: 5/15] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:38 2020] GET /media/book/2020/06/20/25205775-1_w_2.jpg => generated 95554 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 1)
+[pid: 71346|app: 0|req: 3/16] 127.0.0.1 () {44 vars in 900 bytes} [Wed Jun 24 01:13:38 2020] GET /media/book/2020/06/20/25205783-1_b_3.jpg => generated 43939 bytes in 14 msecs via sendfile() (HTTP/1.1 200) 4 headers in 143 bytes (0 switches on core 0)
+[pid: 71346|app: 0|req: 4/17] 127.0.0.1 () {48 vars in 1023 bytes} [Wed Jun 24 01:13:41 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 87 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71342|app: 0|req: 4/18] 127.0.0.1 () {44 vars in 841 bytes} [Wed Jun 24 01:13:41 2020] GET /static/css/common.css => generated 2340 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71348|app: 0|req: 6/19] 127.0.0.1 () {48 vars in 999 bytes} [Wed Jun 24 01:13:42 2020] GET /shopping/logout => generated 0 bytes in 856 msecs (HTTP/1.1 302) 5 headers in 241 bytes (1 switches on core 1)
+[pid: 71348|app: 0|req: 7/20] 127.0.0.1 () {48 vars in 979 bytes} [Wed Jun 24 01:13:43 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 574 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 8/21] 127.0.0.1 () {44 vars in 797 bytes} [Wed Jun 24 01:13:44 2020] GET /static/css/common.css => generated 2340 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 71348|app: 0|req: 9/22] 127.0.0.1 () {48 vars in 953 bytes} [Wed Jun 24 01:13:45 2020] GET /shopping/login => generated 2328 bytes in 133 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+Not Found: /static/css/common.css
+[pid: 71342|app: 0|req: 6/23] 127.0.0.1 () {44 vars in 778 bytes} [Wed Jun 24 01:13:46 2020] GET /static/css/common.css => generated 2340 bytes in 37 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 71342|app: 0|req: 6/24] 127.0.0.1 () {44 vars in 789 bytes} [Wed Jun 24 01:13:46 2020] GET /shopping/get_code => generated 5641 bytes in 297 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 71348|app: 0|req: 10/25] 127.0.0.1 () {56 vars in 1115 bytes} [Wed Jun 24 01:14:01 2020] POST /shopping/login => generated 2407 bytes in 302 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71346|app: 0|req: 6/26] 127.0.0.1 () {44 vars in 821 bytes} [Wed Jun 24 01:14:01 2020] GET /static/css/common.css => generated 2340 bytes in 19 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71346|app: 0|req: 6/27] 127.0.0.1 () {44 vars in 834 bytes} [Wed Jun 24 01:14:01 2020] GET /shopping/get_code => generated 5780 bytes in 411 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 1)
+[pid: 71343|app: 0|req: 6/28] 127.0.0.1 () {56 vars in 1115 bytes} [Wed Jun 24 01:14:10 2020] POST /shopping/login => generated 0 bytes in 463 msecs (HTTP/1.1 302) 6 headers in 315 bytes (1 switches on core 0)
+[pid: 71343|app: 0|req: 7/29] 127.0.0.1 () {50 vars in 1034 bytes} [Wed Jun 24 01:14:10 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 254 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 11/30] 127.0.0.1 () {44 vars in 840 bytes} [Wed Jun 24 01:14:11 2020] GET /static/css/common.css => generated 2340 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71346|app: 0|req: 7/31] 127.0.0.1 () {48 vars in 998 bytes} [Wed Jun 24 01:14:14 2020] GET /shopping/person => generated 7333 bytes in 722 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 12/32] 127.0.0.1 () {44 vars in 822 bytes} [Wed Jun 24 01:14:15 2020] GET /static/css/common.css => generated 2340 bytes in 8 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+[pid: 71346|app: 0|req: 8/33] 127.0.0.1 () {44 vars in 1138 bytes} [Wed Jun 24 01:14:15 2020] GET /media/icon/2020/06/20/%E5%B8%A6%E7%9C%BC%E9%95%9C%E7%9A%84%E5%A5%B3%E7%94%9F_%E9%9D%A2%E9%83%A8_%E5%A5%BD%E7%9C%8B%E7%9A%84%E4%BA%BA%E7%89%A9%E6%8F%92%E7%94%BB%E7%BB%98%E7%94%BB4k%E9%AB%98%E6%B8%85%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8.jpg => generated 510565 bytes in 23 msecs via sendfile() (HTTP/1.1 200) 4 headers in 144 bytes (0 switches on core 1)
+[pid: 71343|app: 0|req: 8/34] 127.0.0.1 () {48 vars in 979 bytes} [Wed Jun 24 01:14:25 2020] GET /shopping/cart/ => generated 8127 bytes in 243 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 13/35] 127.0.0.1 () {44 vars in 822 bytes} [Wed Jun 24 01:14:25 2020] GET /static/css/common.css => generated 2340 bytes in 7 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71348|app: 0|req: 14/36] 127.0.0.1 () {48 vars in 980 bytes} [Wed Jun 24 01:14:29 2020] GET /shopping/person => generated 7333 bytes in 156 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 15/37] 127.0.0.1 () {44 vars in 823 bytes} [Wed Jun 24 01:14:29 2020] GET /static/css/common.css => generated 2340 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+[pid: 71346|app: 0|req: 9/38] 127.0.0.1 () {48 vars in 1005 bytes} [Wed Jun 24 01:14:32 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 97 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 16/39] 127.0.0.1 () {44 vars in 841 bytes} [Wed Jun 24 01:14:33 2020] GET /static/css/common.css => generated 2340 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+Not Found: /static/css/common.css
+[pid: 71348|app: 0|req: 17/40] 127.0.0.1 () {46 vars in 940 bytes} [Wed Jun 24 01:14:36 2020] GET /static/css/common.css => generated 2340 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Not Found: /static/css/common.css
+[pid: 71343|app: 0|req: 9/41] 127.0.0.1 () {46 vars in 940 bytes} [Wed Jun 24 01:14:46 2020] GET /static/css/common.css => generated 2340 bytes in 9 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 71349)
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Tue Jun 23 17:23:17 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-26-generic #30-Ubuntu SMP Mon Apr 20 16:58:30 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55867ae242b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55867ae242b0 pid: 71835 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 71835)
+spawned uWSGI worker 1 (pid: 71838, cores: 2)
+spawned uWSGI worker 2 (pid: 71839, cores: 2)
+spawned uWSGI worker 3 (pid: 71842, cores: 2)
+spawned uWSGI worker 4 (pid: 71844, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Tue Jun 23 18:07:00 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-26-generic #30-Ubuntu SMP Mon Apr 20 16:58:30 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x5556e38b33b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5556e38b33b0 pid: 73853 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 73853)
+spawned uWSGI worker 1 (pid: 73856, cores: 2)
+spawned uWSGI worker 2 (pid: 73857, cores: 2)
+spawned uWSGI worker 3 (pid: 73859, cores: 2)
+spawned uWSGI worker 4 (pid: 73861, cores: 2)
+[pid: 73859|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 1050 bytes} [Wed Jun 24 02:07:19 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 99 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 73859|app: 0|req: 2/2] 127.0.0.1 () {48 vars in 971 bytes} [Wed Jun 24 02:07:19 2020] GET /media/book/2020/06/20/24156030-1_l_12.jpg => generated 77 bytes in 60 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 2/3] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:19 2020] GET /media/book/2020/06/20/26921715-1_l_2.jpg => generated 77 bytes in 80 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 2/4] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:19 2020] GET /media/book/2020/06/20/25090502-1_l_5.jpg => generated 77 bytes in 84 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73857|app: 0|req: 2/5] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:19 2020] GET /media/book/2020/06/20/23579654-1_l_6.jpg => generated 77 bytes in 84 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73857|app: 0|req: 2/6] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:19 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 116 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73859|app: 0|req: 3/7] 127.0.0.1 () {50 vars in 1026 bytes} [Wed Jun 24 02:07:46 2020] GET /shopping/index/%E6%95%99%E8%82%B2 => generated 5676 bytes in 83 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 73859|app: 0|req: 4/8] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:46 2020] GET /media/book/2020/06/20/23697183-1_b_1.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 3/9] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:46 2020] GET /media/book/2020/06/20/25205774-1_l_3.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73857|app: 0|req: 4/10] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:46 2020] GET /media/book/2020/06/20/25205764-1_b_3.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73857|app: 0|req: 4/11] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:46 2020] GET /media/book/2020/06/20/25205783-1_b_3.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 4/12] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:46 2020] GET /media/book/2020/06/20/25205775-1_w_2.jpg => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 5/13] 127.0.0.1 () {52 vars in 1092 bytes} [Wed Jun 24 02:07:50 2020] GET /shopping/index/%E5%B0%8F%E8%AF%B4 => generated 5591 bytes in 271 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 73859|app: 0|req: 5/14] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:51 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 6/15] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:51 2020] GET /media/book/2020/06/20/25090502-1_l_5.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73857|app: 0|req: 6/16] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:51 2020] GET /media/book/2020/06/20/23579654-1_l_6.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73857|app: 0|req: 6/17] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:07:51 2020] GET /media/book/2020/06/20/26921715-1_l_2.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73856|app: 0|req: 1/18] 127.0.0.1 () {48 vars in 971 bytes} [Wed Jun 24 02:07:51 2020] GET /media/book/2020/06/20/24156030-1_l_12.jpg => generated 77 bytes in 42 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73856|app: 0|req: 2/19] 127.0.0.1 () {52 vars in 1066 bytes} [Wed Jun 24 02:07:53 2020] GET /shopping/cart/ => generated 8127 bytes in 202 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 7/20] 127.0.0.1 () {48 vars in 950 bytes} [Wed Jun 24 02:07:54 2020] GET /media/book/2020/06/20/25205764-1_b_3.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 8/21] 127.0.0.1 () {48 vars in 950 bytes} [Wed Jun 24 02:07:54 2020] GET /media/book/2020/06/20/25205783-1_b_3.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 9/22] 127.0.0.1 () {52 vars in 1049 bytes} [Wed Jun 24 02:07:58 2020] GET /shopping/person => generated 7333 bytes in 890 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 10/23] 127.0.0.1 () {48 vars in 1207 bytes} [Wed Jun 24 02:07:59 2020] GET /media/icon/2020/06/20/%E5%B8%A6%E7%9C%BC%E9%95%9C%E7%9A%84%E5%A5%B3%E7%94%9F_%E9%9D%A2%E9%83%A8_%E5%A5%BD%E7%9C%8B%E7%9A%84%E4%BA%BA%E7%89%A9%E6%8F%92%E7%94%BB%E7%BB%98%E7%94%BB4k%E9%AB%98%E6%B8%85%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 11/24] 127.0.0.1 () {52 vars in 1074 bytes} [Wed Jun 24 02:08:02 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 39 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 12/25] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:02 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73857|app: 0|req: 7/26] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:02 2020] GET /media/book/2020/06/20/23579654-1_l_6.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73859|app: 0|req: 7/27] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:02 2020] GET /media/book/2020/06/20/26921715-1_l_2.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73859|app: 0|req: 7/28] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:02 2020] GET /media/book/2020/06/20/25090502-1_l_5.jpg => generated 77 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 13/29] 127.0.0.1 () {48 vars in 971 bytes} [Wed Jun 24 02:08:02 2020] GET /media/book/2020/06/20/24156030-1_l_12.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73859|app: 0|req: 8/30] 127.0.0.1 () {50 vars in 1052 bytes} [Wed Jun 24 02:08:07 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 14/31] 127.0.0.1 () {54 vars in 1105 bytes} [Wed Jun 24 02:08:49 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 65 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 15/32] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:49 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73859|app: 0|req: 9/33] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:49 2020] GET /media/book/2020/06/20/25090502-1_l_5.jpg => generated 77 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 16/34] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:49 2020] GET /media/book/2020/06/20/26921715-1_l_2.jpg => generated 77 bytes in 4 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73859|app: 0|req: 10/35] 127.0.0.1 () {48 vars in 969 bytes} [Wed Jun 24 02:08:49 2020] GET /media/book/2020/06/20/23579654-1_l_6.jpg => generated 77 bytes in 5 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73857|app: 0|req: 8/36] 127.0.0.1 () {48 vars in 971 bytes} [Wed Jun 24 02:08:49 2020] GET /media/book/2020/06/20/24156030-1_l_12.jpg => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 73861|app: 0|req: 17/37] 127.0.0.1 () {50 vars in 1052 bytes} [Wed Jun 24 02:08:57 2020] GET /media/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 73861|app: 0|req: 18/38] 127.0.0.1 () {50 vars in 1061 bytes} [Wed Jun 24 02:10:57 2020] GET /media/uploads/book/2020/06/20/25119332-1_l_9.jpg => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+...brutally killing workers...
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 16:53:30 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55f0a6d253b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55f0a6d253b0 pid: 3853 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 3853)
+spawned uWSGI worker 1 (pid: 3856, cores: 2)
+spawned uWSGI worker 2 (pid: 3857, cores: 2)
+spawned uWSGI worker 3 (pid: 3860, cores: 2)
+spawned uWSGI worker 4 (pid: 3861, cores: 2)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/lala/PycharmProjects/Django-Mall
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 3 mapped to socket 0 (127.0.0.1:8080)
+running /home/lala/.local/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sat Jun 27 01:02:15 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55cd82f9f9b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x55cd82f9f9b0 pid: 3853 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 3853)
+spawned uWSGI worker 1 (pid: 4485, cores: 2)
+spawned uWSGI worker 2 (pid: 4486, cores: 2)
+spawned uWSGI worker 3 (pid: 4488, cores: 2)
+spawned uWSGI worker 4 (pid: 4490, cores: 2)
+...brutally killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/lala/PycharmProjects/Django-Mall
+closing all non-uwsgi socket fds > 2 (max_fd = 1048576)...
+found fd 3 mapped to socket 0 (127.0.0.1:8080)
+running /home/lala/.local/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sat Jun 27 01:02:37 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited INET address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55c37b7659b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55c37b7659b0 pid: 3853 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 3853)
+spawned uWSGI worker 1 (pid: 4514, cores: 2)
+spawned uWSGI worker 2 (pid: 4515, cores: 2)
+spawned uWSGI worker 3 (pid: 4517, cores: 2)
+spawned uWSGI worker 4 (pid: 4520, cores: 2)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 17:26:40 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55bfa32163b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 5 seconds on interpreter 0x55bfa32163b0 pid: 5940 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 5940)
+spawned uWSGI worker 1 (pid: 5943, cores: 2)
+spawned uWSGI worker 2 (pid: 5944, cores: 2)
+spawned uWSGI worker 3 (pid: 5947, cores: 2)
+spawned uWSGI worker 4 (pid: 5948, cores: 2)
+[pid: 5947|app: 0|req: 1/1] 127.0.0.1 () {54 vars in 1069 bytes} [Sat Jun 27 01:26:52 2020] GET /demo/upload => generated 608 bytes in 231 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 0)
+[pid: 5947|app: 0|req: 2/2] 127.0.0.1 () {54 vars in 1069 bytes} [Sat Jun 27 01:26:53 2020] GET /demo/upload => generated 608 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 1)
+[pid: 5947|app: 0|req: 3/3] 127.0.0.1 () {54 vars in 1069 bytes} [Sat Jun 27 01:26:53 2020] GET /demo/upload => generated 608 bytes in 14 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 0)
+[pid: 5947|app: 0|req: 4/4] 127.0.0.1 () {54 vars in 1069 bytes} [Sat Jun 27 01:26:53 2020] GET /demo/upload => generated 608 bytes in 4 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 1)
+[pid: 5947|app: 0|req: 5/5] 127.0.0.1 () {54 vars in 1069 bytes} [Sat Jun 27 01:26:54 2020] GET /demo/upload => generated 608 bytes in 15 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 0)
+[pid: 5948|app: 0|req: 1/6] 127.0.0.1 () {54 vars in 1069 bytes} [Sat Jun 27 01:26:54 2020] GET /demo/upload => generated 608 bytes in 51 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 0)
+[pid: 5944|app: 0|req: 1/7] 127.0.0.1 () {50 vars in 1019 bytes} [Sat Jun 27 01:27:03 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 383 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 17:39:04 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8080).
+bind(): Address already in use [core/socket.c line 769]
+[pid: 5948|app: 0|req: 2/8] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:19 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 1362 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 5947|app: 0|req: 6/9] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:23 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 111 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 5947|app: 0|req: 7/10] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:24 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 56 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 5944|app: 0|req: 2/11] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:25 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 43 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 5947|app: 0|req: 8/12] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:26 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 51 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 5947|app: 0|req: 9/13] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:26 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 53 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 5948|app: 0|req: 3/14] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:27 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 61 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 5948|app: 0|req: 4/15] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:39:29 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 51 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 5944|app: 0|req: 3/16] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 01:42:30 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 172 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 5947|app: 0|req: 10/17] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:11:29 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 443 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 18:13:36 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x5556e87ee3b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x5556e87ee3b0 pid: 8540 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 8540)
+spawned uWSGI worker 1 (pid: 8544, cores: 2)
+spawned uWSGI worker 2 (pid: 8546, cores: 2)
+spawned uWSGI worker 3 (pid: 8548, cores: 2)
+spawned uWSGI worker 4 (pid: 8550, cores: 2)
+[pid: 8550|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:13:41 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 385 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 2/2] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:13:43 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 109 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8544|app: 0|req: 1/3] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:15:02 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 275 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8544|app: 0|req: 2/4] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:15:03 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 24 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8546|app: 0|req: 1/5] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:15:03 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 108 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 3/6] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:15:04 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 36 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 4/7] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:15:52 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 87 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8550|app: 0|req: 5/8] 127.0.0.1 () {50 vars in 965 bytes} [Sat Jun 27 02:16:48 2020] GET / => generated 77 bytes in 117 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 8548|app: 0|req: 1/9] 127.0.0.1 () {50 vars in 983 bytes} [Sat Jun 27 02:17:09 2020] GET /shopping/ => generated 77 bytes in 336 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 8548|app: 0|req: 2/10] 127.0.0.1 () {50 vars in 975 bytes} [Sat Jun 27 02:17:21 2020] GET /demo/ => generated 10 bytes in 49 msecs (HTTP/1.1 200) 3 headers in 108 bytes (1 switches on core 1)
+[pid: 8548|app: 0|req: 3/11] 127.0.0.1 () {50 vars in 975 bytes} [Sat Jun 27 02:17:34 2020] GET /lala/ => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 6/12] 127.0.0.1 () {50 vars in 1019 bytes} [Sat Jun 27 02:18:08 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 95 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8550|app: 0|req: 7/13] 127.0.0.1 () {52 vars in 1043 bytes} [Sat Jun 27 02:30:34 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 115 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8546|app: 0|req: 2/14] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:30:51 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 131 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8546|app: 0|req: 3/15] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:31:39 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 23 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8548|app: 0|req: 4/16] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:31:55 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 153 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8550|app: 0|req: 8/17] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:31:57 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 71 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8544|app: 0|req: 3/18] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:32:04 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 83 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 9/19] 127.0.0.1 () {50 vars in 973 bytes} [Sat Jun 27 02:34:44 2020] GET /Mall => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 10/20] 127.0.0.1 () {50 vars in 975 bytes} [Sat Jun 27 02:34:52 2020] GET /Mall/ => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 8550|app: 0|req: 11/21] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:36:53 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 184 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 12/22] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:37:14 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 86 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8548|app: 0|req: 5/23] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:37:15 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 62 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8544|app: 0|req: 4/24] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:37:16 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8550|app: 0|req: 13/25] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:38:17 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 53 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 14/26] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:38:19 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 89 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8544|app: 0|req: 5/27] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:38:38 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 79 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8544|app: 0|req: 6/28] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:39:00 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 78 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8544|app: 0|req: 7/29] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:39:16 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 110 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8548|app: 0|req: 6/30] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:39:25 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 59 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8548|app: 0|req: 7/31] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:40:37 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 59 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8546|app: 0|req: 4/32] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:40:39 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 53 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 8546|app: 0|req: 5/33] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:41:21 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 103 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 8550|app: 0|req: 15/34] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:41:21 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 191 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 18:42:19 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x56180fe043b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x56180fe043b0 pid: 9777 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9777)
+spawned uWSGI worker 1 (pid: 9779, cores: 2)
+spawned uWSGI worker 2 (pid: 9780, cores: 2)
+spawned uWSGI worker 3 (pid: 9783, cores: 2)
+spawned uWSGI worker 4 (pid: 9784, cores: 2)
+[pid: 9783|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:42:23 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 134 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 9780|app: 0|req: 1/2] 127.0.0.1 () {52 vars in 1050 bytes} [Sat Jun 27 02:42:24 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 89 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 9783|app: 0|req: 2/3] 127.0.0.1 () {52 vars in 1068 bytes} [Sat Jun 27 02:42:43 2020] GET /shopping/logout => generated 0 bytes in 682 msecs (HTTP/1.1 302) 5 headers in 241 bytes (1 switches on core 1)
+[pid: 9780|app: 0|req: 2/4] 127.0.0.1 () {52 vars in 1048 bytes} [Sat Jun 27 02:42:44 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 52 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 9784|app: 0|req: 1/5] 127.0.0.1 () {52 vars in 1022 bytes} [Sat Jun 27 02:42:45 2020] GET /shopping/login => generated 2328 bytes in 193 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 9783|app: 0|req: 3/6] 127.0.0.1 () {48 vars in 860 bytes} [Sat Jun 27 02:42:45 2020] GET /shopping/get_code => generated 5724 bytes in 252 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 9783|app: 0|req: 4/7] 127.0.0.1 () {48 vars in 949 bytes} [Sat Jun 27 02:42:47 2020] GET /shopping/get_code?t=0.030707811555196418 => generated 5480 bytes in 177 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 1)
+[pid: 9783|app: 0|req: 5/8] 127.0.0.1 () {48 vars in 989 bytes} [Sat Jun 27 02:42:48 2020] GET /shopping/get_code?t=0.030707811555196418?t=0.578152893555353 => generated 5589 bytes in 245 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 9780|app: 0|req: 3/9] 127.0.0.1 () {50 vars in 1067 bytes} [Sat Jun 27 02:42:48 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 89 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 9780|app: 0|req: 4/10] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:42:54 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 61 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 9784|app: 0|req: 2/11] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:42:56 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 51 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 9784|app: 0|req: 3/12] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:43:02 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 38 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 9784|app: 0|req: 4/13] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:43:17 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 90 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 9783|app: 0|req: 6/14] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:43:18 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 60 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 9780|app: 0|req: 5/15] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:43:19 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 27 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 18:43:53 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x556ef51f73b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+Traceback (most recent call last):
+  File "Mall/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/lala/.local/lib/python3.8/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+    return WSGIHandler()
+  File "/home/lala/.local/lib/python3.8/site-packages/django/core/handlers/wsgi.py", line 135, in __init__
+    self.load_middleware()
+  File "/home/lala/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 35, in load_middleware
+    middleware = import_string(middleware_path)
+  File "/home/lala/.local/lib/python3.8/site-packages/django/utils/module_loading.py", line 17, in import_string
+    module = import_module(module_path)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./Mall/middleware.py", line 8, in <module>
+    reverse('shopping:person'),
+  File "/home/lala/.local/lib/python3.8/site-packages/django/urls/base.py", line 58, in reverse
+    app_list = resolver.app_dict[ns]
+  File "/home/lala/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 513, in app_dict
+    self._populate()
+  File "/home/lala/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 447, in _populate
+    for url_pattern in reversed(self.url_patterns):
+  File "/home/lala/.local/lib/python3.8/site-packages/django/utils/functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/lala/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 584, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/lala/.local/lib/python3.8/site-packages/django/utils/functional.py", line 80, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/lala/.local/lib/python3.8/site-packages/django/urls/resolvers.py", line 577, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./Mall/urls.py", line 24, in <module>
+    path('demo/', include('demo.urls', namespace='demo')),
+  File "/home/lala/.local/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./demo/urls.py", line 3, in <module>
+    from demo import views
+  File "./demo/views.py", line 12, in <module>
+    from Mall.settings import STATIC_ROOT
+ImportError: cannot import name 'STATIC_ROOT' from 'Mall.settings' (./Mall/settings.py)
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9876)
+spawned uWSGI worker 1 (pid: 9878, cores: 2)
+spawned uWSGI worker 2 (pid: 9879, cores: 2)
+spawned uWSGI worker 3 (pid: 9882, cores: 2)
+spawned uWSGI worker 4 (pid: 9883, cores: 2)
+--- no python application found, check your startup logs for errors ---
+[pid: 9882|app: -1|req: -1/1] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:43:57 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 9883|app: -1|req: -1/2] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:43:59 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 9882|app: -1|req: -1/3] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:44:32 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 9878|app: -1|req: -1/4] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:44:33 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 9882|app: -1|req: -1/5] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:44:58 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+--- no python application found, check your startup logs for errors ---
+[pid: 9882|app: -1|req: -1/6] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:44:59 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 1)
+--- no python application found, check your startup logs for errors ---
+[pid: 9878|app: -1|req: -1/7] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:44:59 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 18:45:16 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55fc328b03b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55fc328b03b0 pid: 9935 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 9935)
+spawned uWSGI worker 1 (pid: 9938, cores: 2)
+spawned uWSGI worker 2 (pid: 9939, cores: 2)
+spawned uWSGI worker 3 (pid: 9941, cores: 2)
+spawned uWSGI worker 4 (pid: 9943, cores: 2)
+[pid: 9939|app: 0|req: 1/1] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:45:19 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 74 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 18:50:39 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x55a3119993b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55a3119993b0 pid: 10177 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10177)
+spawned uWSGI worker 1 (pid: 10180, cores: 2)
+spawned uWSGI worker 2 (pid: 10181, cores: 2)
+spawned uWSGI worker 3 (pid: 10183, cores: 2)
+spawned uWSGI worker 4 (pid: 10186, cores: 2)
+[pid: 10181|app: 0|req: 1/1] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:51:11 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 109 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Jun 26 18:53:57 2020] ***
+compiled with version: 9.3.0 on 23 June 2020 16:56:48
+os: Linux-5.4.0-37-generic #41-Ubuntu SMP Wed Jun 3 18:57:02 UTC 2020
+nodename: lala
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /home/lala/PycharmProjects/Django-Mall
+writing pidfile to uwsgi.pid
+detected binary path: /home/lala/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/lala/PycharmProjects/Django-Mall
+your processes number limit is 14654
+your memory page size is 4096 bytes
+detected max file descriptor number: 1048576
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8080 fd 3
+Python version: 3.8.2 (default, Apr 27 2020, 15:53:34)  [GCC 9.3.0]
+Python main interpreter initialized at 0x563757ff53b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x563757ff53b0 pid: 10246 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 10246)
+spawned uWSGI worker 1 (pid: 10248, cores: 2)
+spawned uWSGI worker 2 (pid: 10249, cores: 2)
+spawned uWSGI worker 3 (pid: 10252, cores: 2)
+spawned uWSGI worker 4 (pid: 10254, cores: 2)
+[pid: 10249|app: 0|req: 1/1] 127.0.0.1 () {54 vars in 1123 bytes} [Sat Jun 27 02:54:00 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 93 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 10254|app: 0|req: 1/2] 127.0.0.1 () {52 vars in 1066 bytes} [Sat Jun 27 02:54:36 2020] GET /shopping/login => generated 2328 bytes in 73 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 10252|app: 0|req: 1/3] 127.0.0.1 () {48 vars in 904 bytes} [Sat Jun 27 02:54:36 2020] GET /shopping/get_code => generated 5781 bytes in 373 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 10254|app: 0|req: 2/4] 127.0.0.1 () {48 vars in 947 bytes} [Sat Jun 27 02:54:38 2020] GET /shopping/get_code?t=0.07789094070803126 => generated 5405 bytes in 218 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 1)
+[pid: 10252|app: 0|req: 2/5] 127.0.0.1 () {54 vars in 1097 bytes} [Sat Jun 27 02:57:19 2020] GET /shopping/login => generated 2328 bytes in 210 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 10252|app: 0|req: 3/6] 127.0.0.1 () {48 vars in 904 bytes} [Sat Jun 27 02:57:20 2020] GET /shopping/get_code => generated 5374 bytes in 264 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 10254|app: 0|req: 3/7] 127.0.0.1 () {52 vars in 1049 bytes} [Sat Jun 27 02:57:21 2020] GET /shopping/person => generated 0 bytes in 17 msecs (HTTP/1.1 302) 5 headers in 151 bytes (1 switches on core 0)
+[pid: 10249|app: 0|req: 2/8] 127.0.0.1 () {52 vars in 1047 bytes} [Sat Jun 27 02:57:21 2020] GET /shopping/login => generated 2328 bytes in 146 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 10249|app: 0|req: 3/9] 127.0.0.1 () {48 vars in 904 bytes} [Sat Jun 27 02:57:21 2020] GET /shopping/get_code => generated 5924 bytes in 163 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 10252|app: 0|req: 4/10] 127.0.0.1 () {52 vars in 1047 bytes} [Sat Jun 27 02:57:22 2020] GET /shopping/cart/ => generated 0 bytes in 44 msecs (HTTP/1.1 302) 5 headers in 151 bytes (1 switches on core 1)
+[pid: 10254|app: 0|req: 4/11] 127.0.0.1 () {52 vars in 1047 bytes} [Sat Jun 27 02:57:22 2020] GET /shopping/login => generated 2328 bytes in 38 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 10252|app: 0|req: 5/12] 127.0.0.1 () {48 vars in 904 bytes} [Sat Jun 27 02:57:22 2020] GET /shopping/get_code => generated 5627 bytes in 177 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 10254|app: 0|req: 5/13] 127.0.0.1 () {52 vars in 1073 bytes} [Sat Jun 27 02:57:23 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5559 bytes in 132 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 10254|app: 0|req: 6/14] 127.0.0.1 () {52 vars in 1066 bytes} [Sat Jun 27 02:57:27 2020] GET /shopping/login => generated 2328 bytes in 175 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 10252|app: 0|req: 6/15] 127.0.0.1 () {48 vars in 904 bytes} [Sat Jun 27 02:57:27 2020] GET /shopping/get_code => generated 5288 bytes in 173 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 1)
+[pid: 10254|app: 0|req: 7/16] 127.0.0.1 () {60 vars in 1226 bytes} [Sat Jun 27 02:57:46 2020] POST /shopping/login => generated 2407 bytes in 369 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 10252|app: 0|req: 7/17] 127.0.0.1 () {48 vars in 904 bytes} [Sat Jun 27 02:57:47 2020] GET /shopping/get_code => generated 5919 bytes in 152 msecs (HTTP/1.1 200) 5 headers in 254 bytes (1 switches on core 0)
+[pid: 10249|app: 0|req: 4/18] 127.0.0.1 () {60 vars in 1226 bytes} [Sat Jun 27 02:59:58 2020] POST /shopping/login => generated 0 bytes in 263 msecs (HTTP/1.1 302) 6 headers in 315 bytes (1 switches on core 1)
+[pid: 10249|app: 0|req: 5/19] 127.0.0.1 () {54 vars in 1104 bytes} [Sat Jun 27 02:59:59 2020] GET /shopping/index/%E5%85%A8%E9%83%A8 => generated 5591 bytes in 343 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 10254|app: 0|req: 8/20] 127.0.0.1 () {52 vars in 1068 bytes} [Sat Jun 27 03:00:01 2020] GET /shopping/person => generated 7333 bytes in 1170 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)

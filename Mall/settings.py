@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm762!^3zodeiy%e-c@4wp^v%ne7@9=a$g^ghu-z3^*%kkf%hhj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -124,8 +124,8 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
+#     os.path.join(BASE_DIR, 'shopping/static')
 # ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/uploads/')
 MEDIA_URL = '/media/'
