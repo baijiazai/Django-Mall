@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm762!^3zodeiy%e-c@4wp^v%ne7@9=a$g^ghu-z3^*%kkf%hhj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,6 +84,22 @@ DATABASES = {
         'PASSWORD': 'gkqFLbMR83HqMt9F',
         'HOST': 'localhost',
         'PORT': 3306
+    }
+}
+
+CACHES = {
+
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    },
+
+    'redis_backend': {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
     }
 }
 
