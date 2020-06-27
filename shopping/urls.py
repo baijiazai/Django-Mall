@@ -27,5 +27,8 @@ urlpatterns = [
         path('pay', views.order_pay, name='order_pay'),
         path('take', views.order_take, name='order_take'),
         path('eval', views.order_eval, name='order_eval'),
-    ]))
+    ])),
+
+    path('edit_collect/<op>/<int:book_id>', views.edit_collect, name="edit_collect"),
+    path('book_detail/<int:book_id>', views.book_detail, name='book_detail'),
 ]

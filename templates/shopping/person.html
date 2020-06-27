@@ -82,6 +82,18 @@
         {#  收藏  #}
         <div>
             <h2>收藏</h2>
+            <ul>
+                {% for collect in collect_list %}
+                    <li>
+                        <div class="bold">{{ collect.book.name }}</div>
+                        <div style="color: red;">￥{{ collect.book.price }}</div>
+                        <div>销量：{{ collect.book.scale }}</div>
+                        <div>库存：{{ collect.book.store }}</div>
+                        <div>{{ collect.book.comments }}人评论</div>
+                        <div><a href="{% url 'shopping:book_detail' collect.book.id %}">查看详情</a></div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
         {#  待付款  #}
         <div>

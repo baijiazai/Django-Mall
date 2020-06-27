@@ -61,3 +61,11 @@ class OrderBook(models.Model):
 
     class Meta:
         verbose_name_plural = '订单书籍'
+
+
+class Collect(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='用户')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name='书籍')
+
+    class Meta:
+        verbose_name_plural = '收藏'

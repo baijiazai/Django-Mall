@@ -15,18 +15,20 @@ from six import BytesIO
 
 from Mall.settings import STATIC_ROOT
 from shopping.forms import LoginForm, RegisterForm
-from shopping.models import BOOK_CLASS_LIST, Book, User, Cart, Order, OrderBook
+from shopping.models import BOOK_CLASS_LIST, Book, User, Cart, Order, OrderBook, Collect
 
 
 def index(request, book_class):
     book_list = Book.objects.all() if book_class == '全部' else Book.objects.filter(book_class=book_class)
+    collect_list = Collect.objects.filter(user_id=request.session.get('user_id', 0))
     paginator = Paginator(book_list, 5)
     page = request.GET.get('page')
     contacts = paginator.get_page(page)
 
     context = {
         'book_class_list': [b[0] for b in BOOK_CLASS_LIST],
-        'book_list': contacts
+        'book_list': contacts,
+        'collect_list': collect_list
     }
     return render(request, 'shopping/index.html', context)
 
@@ -130,13 +132,14 @@ def get_code(request):
 # 个人中心
 class PersonView(View):
     def get(self, request):
-        user_id = request.session.get('user_id', '')
+        user_id = request.session.get('user_id', 0)
         user = get_object_or_404(User, pk=user_id)
         order_list = Order.objects.filter(user_id=user_id)
         pay_order_list = Order.objects.filter(user_id=user_id, status='待付款')
         send_order_list = Order.objects.filter(user_id=user_id, status='待发货')
         take_order_list = Order.objects.filter(user_id=user_id, status='待收货')
         eval_order_list = Order.objects.filter(user_id=user_id, status='待评价')
+        collect_list = Collect.objects.filter(user_id=user_id)
         context = {
             'user': user,
             'order_list': order_list,
@@ -144,6 +147,7 @@ class PersonView(View):
             'send_order_list': send_order_list,
             'take_order_list': take_order_list,
             'eval_order_list': eval_order_list,
+            'collect_list': collect_list
         }
         return render(request, 'shopping/person.html', context)
 
@@ -171,12 +175,12 @@ class PersonView(View):
 # 购物车列表
 class CartView(View):
     def get(self, request):
-        user_id = request.session.get('user_id', '')
+        user_id = request.session.get('user_id', 0)
         cart_list = Cart.objects.filter(user_id=user_id)
         return render(request, 'shopping/cart.html', {'cart_list': cart_list})
 
     def post(self, request):
-        user_id = request.session.get('user_id', '')
+        user_id = request.session.get('user_id', 0)
         cbx = request.POST.getlist('sel')
         cart_list = Cart.objects.filter(user_id=user_id, book_id__in=cbx)
 
@@ -190,7 +194,7 @@ class CartView(View):
 
 # 加入购物车或数量加一
 def add_cart(request, book_id):
-    user_id = request.session.get('user_id', '')
+    user_id = request.session.get('user_id', 0)
     data = {
         'status': 200,
         'msg': 'add success',
@@ -208,7 +212,7 @@ def add_cart(request, book_id):
 
 # 移出购物车或数量减一
 def sub_cart(request, book_id):
-    user_id = request.session.get('user_id', '')
+    user_id = request.session.get('user_id', 0)
     try:
         cart = Cart.objects.get(user_id=user_id, book_id=book_id)
         data = {
@@ -275,3 +279,24 @@ def order_take(request):
 # 待评价，评价
 def order_eval(request):
     return None
+
+
+def edit_collect(request, op, book_id):
+    user_id = request.session.get('user_id', 0)
+    if op == 'add':
+        Collect.objects.create(user_id=user_id, book_id=book_id)
+    elif op == 'sub':
+        collect = get_object_or_404(Collect, user_id=user_id, book_id=book_id)
+        collect.delete()
+    return redirect(reverse('shopping:book_detail', kwargs={'book_id': book_id}))
+
+
+def book_detail(request, book_id):
+    user_id = request.session.get('user_id', 0)
+    book = get_object_or_404(Book, pk=book_id)
+    is_collect = Collect.objects.filter(user_id=user_id, book_id=book_id)
+    context = {
+        'book': book,
+        'is_collect': is_collect
+    }
+    return render(request, 'shopping/book_detail.html', context)
