@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 BOOK_CLASS_LIST = [('教育', '教育'), ('小说', '小说'), ('文艺', '文艺'), ('童书', '童书'), ('人文', '人文'), ('经营', '经营'),
                    ('励志', '励志'), ('生活', '生活'), ('科技', '科技')]
@@ -69,3 +70,14 @@ class Collect(models.Model):
 
     class Meta:
         verbose_name_plural = '收藏'
+
+
+class Comment(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name='书籍')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='用户')
+    date = models.DateTimeField(verbose_name='时间', auto_now_add=True)
+    content = models.CharField(verbose_name='评论', max_length=200)
+    zan = models.IntegerField(verbose_name='点赞', default=0)
+
+    class Meta:
+        verbose_name_plural = '评论'

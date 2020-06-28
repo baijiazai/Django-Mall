@@ -16,4 +16,27 @@
         <a href="{% url 'shopping:edit_collect' 'add' book.id %}">收藏</a>
     {% endif %}
 
+    <hr>
+    <h3>评论列表</h3>
+    <form action="{% url 'shopping:add_comment' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="book_id" value="{{ book.id }}">
+        <input type="text" name="content" placeholder="我也来评论">
+        <input type="submit" value="评论">
+    </form>
+    <ul>
+        {% for comment in comment_list %}
+            <li>
+                <div><img src="{{ comment.user.icon.url }}" alt="" width="50"> | 用户：{{ comment.user.nickname }}
+                <div>{{ comment.date }} |
+                    {% if comment.user_id == request.session.user_id %}
+                        <a href="{% url 'shopping:sub_comment' comment.id %}">删除</a>
+                    {% endif %}
+                </div>
+                <p>{{ comment.content }}</p>
+            </li>
+        {% empty %}
+            <h5>来抢第一个沙发</h5>
+        {% endfor %}
+    </ul>
 {% endblock %}

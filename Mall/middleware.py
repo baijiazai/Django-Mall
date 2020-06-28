@@ -7,6 +7,7 @@ from shopping.models import User
 NEED_LOGIN = [
     reverse('shopping:person'),
     reverse('shopping:cart'),
+    reverse('shopping:add_comment'),
 ]
 
 

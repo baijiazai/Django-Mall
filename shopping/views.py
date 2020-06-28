@@ -6,6 +6,7 @@ import string
 from PIL import Image, ImageFont, ImageDraw
 from django.contrib.auth.hashers import make_password, check_password
 from django.core.paginator import Paginator
+from django.db.models import F
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
@@ -15,7 +16,7 @@ from six import BytesIO
 
 from Mall.settings import STATIC_ROOT
 from shopping.forms import LoginForm, RegisterForm
-from shopping.models import BOOK_CLASS_LIST, Book, User, Cart, Order, OrderBook, Collect
+from shopping.models import BOOK_CLASS_LIST, Book, User, Cart, Order, OrderBook, Collect, Comment
 
 
 def index(request, book_class):
@@ -169,7 +170,7 @@ class PersonView(View):
                 user.save()
             else:
                 return render(request, 'shopping/person.html', {'error': '原始密码错误！', 'user': user})
-        return redirect(reverse('shopping:person', kwargs={'pk': user_id}))
+        return redirect(reverse('shopping:person'))
 
 
 # 购物车列表
@@ -281,6 +282,7 @@ def order_eval(request):
     return None
 
 
+# 添加或删除收藏
 def edit_collect(request, op, book_id):
     user_id = request.session.get('user_id', 0)
     if op == 'add':
@@ -291,12 +293,41 @@ def edit_collect(request, op, book_id):
     return redirect(reverse('shopping:book_detail', kwargs={'book_id': book_id}))
 
 
+# 书籍详情
 def book_detail(request, book_id):
     user_id = request.session.get('user_id', 0)
     book = get_object_or_404(Book, pk=book_id)
     is_collect = Collect.objects.filter(user_id=user_id, book_id=book_id)
+    comment_list = Comment.objects.filter(book_id=book_id)
     context = {
         'book': book,
-        'is_collect': is_collect
+        'is_collect': is_collect,
+        'comment_list': comment_list
     }
     return render(request, 'shopping/book_detail.html', context)
+
+
+# 评论
+def add_comment(request):
+    if request.method == 'POST':
+        user_id = request.session.get('user_id', 0)
+        book_id = request.POST.get('book_id')
+        content = request.POST.get('content')
+        book = get_object_or_404(Book, pk=book_id)
+        Comment.objects.create(book_id=book_id, user_id=user_id, content=content)
+        book.comments = book.comments + 1
+        book.save()
+        return redirect(reverse('shopping:book_detail', kwargs={'book_id': book.id}))
+
+
+# 删除评论
+def sub_comment(request, comment_id):
+    user_id = request.session.get('user_id', 0)
+    comment = get_object_or_404(Comment, user_id=user_id, pk=comment_id)
+    book_id = comment.book_id
+    book = get_object_or_404(Book, pk=book_id)
+    comment.delete()
+    book.comments = book.comments - 1
+    book.save()
+    return redirect(reverse('shopping:book_detail', kwargs={'book_id': book.id}))
+

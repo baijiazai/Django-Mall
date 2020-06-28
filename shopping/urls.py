@@ -29,6 +29,8 @@ urlpatterns = [
         path('eval', views.order_eval, name='order_eval'),
     ])),
 
-    path('edit_collect/<op>/<int:book_id>', views.edit_collect, name="edit_collect"),
     path('book_detail/<int:book_id>', views.book_detail, name='book_detail'),
+    path('edit_collect/<op>/<int:book_id>', views.edit_collect, name="edit_collect"),
+    path('add_comment', views.add_comment, name='add_comment'),
+    path('sub_comment/<int:comment_id>', views.sub_comment, name='sub_comment'),
 ]
